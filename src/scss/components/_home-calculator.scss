@@ -1,0 +1,67 @@
+.calculator_block {
+    @include flex(column center);
+
+    .list {
+        width: 100%;
+        @include flex(row flex-start);
+        list-style-type: none;
+
+        li {
+            margin: 0 1rem;
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+
+        li:first-child {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        li:last-child {
+            margin-left: 1rem;
+            margin-right: 0;
+        }
+    }
+
+    .info_block {
+        @include flex(row center);
+        width: 100%;
+
+        .box {
+            width: 50%;
+            @include flex(column center);
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .calculator_block {
+        .list {
+            @include flex(center wrap);
+
+            li {
+                margin: 0.25rem 0.2rem;
+            }
+
+            li:first-child {
+                margin-right: 0;
+
+            } 
+    
+            li:last-child {
+                margin-left: 0;
+            }
+        }
+
+        .info_block {
+            @include flex(column center);
+    
+            .box {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

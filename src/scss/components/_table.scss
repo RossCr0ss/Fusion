@@ -1,0 +1,110 @@
+.table {
+    @include flex(column);
+    background: $color-white;
+    border-radius: 0.25rem;
+    color: $color-gray-slate;
+    min-height: 100%;
+
+    &_shadow {
+        -webkit-box-shadow: 0px 5px 5px 0px $color-grey-shadow;
+        -moz-box-shadow: 0px 5px 5px 0px $color-grey-shadow;
+        box-shadow: 0px 5px 5px 0px $color-grey-shadow;
+    }
+
+    .buttons {
+        @include flex(space-between center);
+        margin-bottom: 1rem;
+    }
+
+    &__content {
+        max-height: 1000px;
+        overflow-y: auto;
+
+        .row {
+            @include flex(space-between center);
+            border-bottom: 1px solid rgba($color-black, 0.12);
+            min-height: 2rem;
+
+            &__cell {
+                width: auto;
+                padding: 15px 5px;
+                text-align: left;
+                vertical-align: middle;
+                border-radius: 2px;
+                width: calc(50% / 3);
+                font-size: 0.9rem;
+            }
+
+            &__cell:first-child {
+                width: 25%;
+                font-weight: 600;
+                text-align: justify;
+            }
+
+            &__cell:last-child {
+                width: 25%;
+                text-align: right;
+            }
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .table {
+            &__content {
+                overflow-x: scroll;
+    
+                .row {
+                    width: 1000px;
+                }
+            } 
+        }
+        
+    }
+
+    @media screen and (max-width: 768px) {
+        .buttons {
+            @include flex(wrap);
+            
+            &__item {
+                width: calc(50% - 0.5rem);
+                margin-bottom: 0.5rem;
+
+                button {
+                    width: 100%;
+                }
+            }
+
+            &__item:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        .buttons {
+                        
+            &__item {
+                width: calc(100%);
+            }
+        }
+    }
+
+    &_session {
+        .row:first-child {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+        
+    .bold {
+        font-weight: bold;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+} 

@@ -1,0 +1,79 @@
+.card {
+    @include flex(space-between wrap);
+
+    &_box {
+        width: calc(100% / 3 - 1rem);
+    }
+
+    &__item {
+        @include flex(row);
+        background: $color-white;
+        border-radius: 0.25rem;
+
+        .image {
+            @include flex(flex-start);
+            border-radius: 5px;
+            width: 30%;
+            height: 100%;
+        }
+
+        .content {   
+            @include flex(column flex-start);
+            width: 70%;
+    
+            &__title, &__subtitle {
+                font-size: 1.64rem;
+                margin: 0.82rem 0 0.656rem;
+                font-weight: 400;
+                color: $color-gray-darkslate;
+            }
+            &__subtitle {
+                font-size: 1.2rem;
+            }
+
+            &__text {
+                font-weight: 400;
+                line-height: 1.5;
+                color: $color-gray-slate;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        @include flex(column);
+        
+        &__item {
+            width: auto;
+            margin-bottom: 1rem;
+            @include flex(column);
+
+            .image, .content {
+                width: 100%;
+            }
+
+            .image {
+                height: 15rem;
+                 img {
+                     height: 100%;
+                 }
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 1rem;
+                @include flex(center);
+
+                .title, .subtitle {
+                    text-align: center;
+                }
+            }
+        }
+
+        &_box {
+            width: 100%;
+        }
+    }
+}

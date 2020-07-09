@@ -1,0 +1,115 @@
+@mixin on-event($self: false) {
+    @if $self {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    } @else {
+        &:hover,
+        &:active,
+        &:focus {
+            @content;
+        }
+    }
+}
+
+@mixin size($width, $height) {
+    height: $height;
+    width: $width;
+}
+
+$sizes: 16;
+
+@mixin margin-classes {
+    @for $i from 1 through $sizes {
+        $margin: $i * 0.25rem;
+        .m-#{$i} {
+            margin: $margin;
+        }
+        .ml-#{$i} {
+            margin-left: $margin;
+        }
+        .mr-#{$i} {
+            margin-right: $margin;
+        }
+        .mt-#{$i} {
+            margin-top: $margin;
+        }
+        .mb-#{$i} {
+            margin-bottom: $margin;
+        }
+        .mx-#{$i} {
+            margin-left: $margin;
+            margin-right: $margin;
+        }
+        .my-#{$i} {
+            margin-top: $margin;
+            margin-bottom: $margin;
+        }
+    }
+}
+@include margin-classes;
+
+@mixin padding-classes {
+    @for $i from 1 through $sizes {
+        $padding: $i * 0.25rem;
+        .p-#{$i} {
+            padding: $padding;
+        }
+        .pl-#{$i} {
+            padding-left: $padding;
+        }
+        .pr-#{$i} {
+            padding-right: $padding;
+        }
+        .pt-#{$i} {
+            padding-top: $padding;
+        }
+        .pb-#{$i} {
+            padding-bottom: $padding;
+        }
+        .px-#{$i} {
+            padding-left: $padding;
+            padding-right: $padding;
+        }
+        .py-#{$i} {
+            padding-top: $padding;
+            padding-bottom: $padding;
+        }
+    }
+}
+@include padding-classes;
+
+@mixin flex($params: null) {
+    display: flex;
+    $justify-content: null;
+    $align-items: null;
+    @each $value in $params {
+        @if $value == "wrap" {
+            flex-wrap: wrap;
+        } @else if $value == "column" {
+            flex-direction: column;
+        } @else if index(space-between space-around, $value) {
+            $justify-content: $value;
+        } @else if index(baseline stretch, $value) {
+            $align-items: $value;
+        } @else if index(flex-start center flex-end, $value) {
+            @if $justify-content {
+                $align-items: $value;
+            } @else {
+                $justify-content: $value;
+                @if not $align-items {
+                    $align-items: $value;
+                }
+            }
+        }
+    }
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin gradient($firstColor, $secondColor, $deg: 90deg) {
+    background: linear-gradient($deg, $firstColor, $secondColor);
+}

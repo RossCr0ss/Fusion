@@ -1,0 +1,255 @@
+.achievements_block {
+    @include flex(space-between wrap);
+    @include gradient($color-blue-slate, $color-orchid-dark);
+    width: 100%;
+    color: $color-white;
+
+    .animate_block {
+        width: 50%;
+        padding: 50px;
+
+        .circle {
+            position: relative;
+            width: 450px;
+            height: 450px;
+            max-width: 100%;
+            max-height: auto;
+            border: 2px dashed $color-white;
+            border-radius: 50%;
+            margin-left: 25px;
+            
+
+            &__item {
+                position: absolute;
+                z-index: 1;
+                @include flex(center);
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                background-color: $color-gray-darkslate;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 50% auto;
+                transition: all 0.35s;
+                cursor: pointer;
+
+                .wrapper {
+                    color: $color-white;
+                }
+
+                &_0 {
+                    top: 5%;
+                    left: 5%;
+                }
+
+                &_1 {
+                    top: -50px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                &_2 {
+                    top: 5%;
+                    right: 5%;
+                }
+
+                &_3 {
+                    top: 50%;
+                    right: -50px;
+                    transform: translateY(-50%);
+                }
+
+                &_4 {
+                    bottom: 5%;
+                    right: 5%;
+                }
+
+                &_5 {
+                    left: 50%;
+                    bottom: -50px;
+                    transform: translateX(-50%);
+                }
+
+                &_6 {
+                    bottom: 5%;
+                    left: 5%;
+                }
+
+                &_7 {
+                    top: 50%;
+                    left: -50px;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .active {
+                background-color: orange;
+            }
+
+            &__content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                padding: 60px;
+                text-align: center;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.5s;
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        .circle__item:hover + .circle__content,
+        .circle__item.active + .circle__content {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .info_block {
+        width: 50%;
+        
+        .content {
+            .text {
+                 text-align: justify;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .achievements_block {
+        .animate_block {
+            width: 590px;
+        }
+        .info_block {
+            width: calc(100% - 590px);
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .achievements_block {
+        @include flex(column center);
+
+        .animate_block {
+            width: 100%;
+            @include flex(column center);
+
+            .circle {
+                margin-left: 0;
+            }
+        }
+        .info_block {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .achievements_block {
+
+        .animate_block {
+            width: 100%;
+            @include flex(column center);
+
+            .circle {
+                width: 300px;
+                height: 300px;
+
+                &__item {
+                    width: 60px;
+                    height: 60px;
+
+                    &_1 {
+                        top: -30px;
+                    }
+
+                    &_3 {
+                        right: -30px;
+                    }
+
+                    &_5 {
+                        bottom: -30px;
+                    }
+    
+                    &_7 {
+                        left: -30px;
+                    }
+                }
+            }
+            
+        }
+        .info_block {
+            width: 100%;
+            text-align: center;
+            
+            .content {
+                .title {
+                    text-align: center; 
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 475px) {
+    .achievements_block {
+
+        .animate_block {
+            padding: 20px 5px;
+
+            .circle {
+                width: 250px;
+                height: 250px;
+
+                &__content {
+                    font-size: 0.75rem;
+                }
+
+                &__item {
+                    width: 40px;
+                    height: 40px;
+
+                    .wrapper {
+                        font-size: 0.75rem;
+                    }
+
+                    &_1 {
+                        top: -30px;
+                    }
+
+                    &_3 {
+                        right: -20px;
+                    }
+
+                    &_5 {
+                        bottom: -20px;
+                    }
+    
+                    &_7 {
+                        left: -20px;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .achievements_block {
+
+        .animate_block {
+
+            .circle {
+                width: 200px;
+                height: 200px;
+
+            }
+        }
+    }
+}
+

@@ -1,0 +1,256 @@
+.withdraw {
+    width: 100%;
+    min-height: 100%;
+
+    .wrapper {
+        @include flex(column);
+
+        &__top {
+            @include flex(space-between);
+            width: 100%;
+
+            .leftside {
+                @include flex(column flex-start);
+                width: 50%;
+
+                &__box {
+                    @include flex(column center flex-start);
+                    margin-bottom: 1rem;
+                    width: 100%;
+
+                    input {
+                        overflow: visible;
+                        font-family: Muli, sans-serif;
+                        box-sizing: content-box;
+                        width: calc(100% - 64px);
+                        height: 3rem;
+                        border: none;
+                        outline: 0;
+                        box-shadow: none;
+                        padding: 0 1.5rem;
+                        border-radius: 5px;
+                        background-color: $color-white-smoke-select;
+                    }
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                    }
+
+                    .custom {
+                        &-select {
+                            @include flex(column);
+
+                            &-wrapper {
+                                position: relative;
+                                width: calc(100% - 16px);
+                            }
+
+                            &__trigger {
+                                position: relative;
+                                @include flex(space-between center);
+                                line-height: 48px;
+                                background-color: $color-white-smoke-select;
+                                cursor: pointer;
+
+                                .arrow {
+                                    position: relative;
+                                    height: 15px;
+                                    width: 15px;
+                                }
+                            }
+                        }
+
+                        &-options {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            right: 0;
+                            background: $color-white-smoke-select;
+                            transition: all 0.5s;
+                            display: none;
+                            z-index: 2;
+                        }
+
+                        &-select.open .custom-options {
+                            display: block;
+                        }
+
+                        &-option {
+                            position: relative;
+                            display: block;
+                            line-height: 36px;
+                            cursor: pointer;
+                            transition: all 0.5s;
+                        }
+
+                        &-option:hover {
+                            background-color: $color-black-image-shadow;
+                        }
+
+                        &-option.selected {
+                            color: $color-white;
+                            background-color: $color-orchid-dark;
+                        }
+                    }
+
+                    .arrow::before,
+                    .arrow::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0px;
+                        width: 0.15rem;
+                        height: 100%;
+                        transition: all 0.5s;
+                    }
+
+                    .arrow::before {
+                        left: -5px;
+                        transform: rotate(-45deg);
+                        background-color: $color-orchid-dark;
+                    }
+
+                    .arrow::after {
+                        left: 5px;
+                        transform: rotate(45deg);
+                        background-color: $color-orchid-dark;
+                    }
+
+                    .open .arrow::before {
+                        left: -5px;
+                        transform: rotate(45deg);
+                    }
+
+                    .open .arrow::after {
+                        left: 5px;
+                        transform: rotate(-45deg);
+                    }
+
+                    /* @media screen and (max-width: 768px) {
+                        .custom-select-wrapper {
+                            width: 100%;
+                        }
+                    } */
+                }
+
+                button {
+                    width: 12rem;
+                }
+            }
+
+            .rightside {
+                @include flex(flex-end flex-start);
+                width: 50%;
+
+                &__box {
+                    @include flex(center flex-start);
+                    width: 250px;
+                    height: 200px;
+
+                    input[type='radio'] {
+                        display: none;
+                        &:not(:disabled) ~ label {
+                            cursor: pointer;
+                            color: $color-orchid-dark;
+                        }
+                        &:disabled ~ label {
+                            color: $color-white;
+                            border-color: $color-white;
+                            box-shadow: none;
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    label {
+                        height: 100%;
+                        width: 100%;
+                        display: block;
+                        background: $color-white;
+                        border: 2px solid $color-orchid-dark;
+                        border-radius: 10px;
+                        padding: 1rem;
+                        text-align: center;
+                        box-shadow: 0px 3px 10px -2px $color-orchid-dark-shadow;
+                        position: relative;
+                    }
+
+                    input[type='radio']:checked + label {
+                        background: $color-orchid-dark;
+                        color: $color-white;
+                        box-shadow: 0px 0px 10px $color-orchid-dark-shadow;
+
+                        &::after {
+                            color: $color-orchid-dark;
+                            border: 2px solid $color-orchid-dark;
+                            content: '✔';
+                            font-size: 24px;
+                            position: absolute;
+                            bottom: 20px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            height: 50px;
+                            width: 50px;
+                            line-height: 50px;
+                            text-align: center;
+                            border-radius: 50%;
+                            background: $color-white;
+                        }
+                    }
+                }
+
+                &__box:first-child {
+                    margin-right: 1rem;
+                }
+
+                &__box:last-child {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .withdraw .wrapper__top {
+        flex-direction: column;
+
+        .leftside {
+            @include flex(center);
+            margin-bottom: 1rem;
+            width: 100%;
+
+            &__box {
+                .custom-select-wrapper {
+                    width: 100%;
+                }
+
+                input {
+                    width: calc(100% - 48px);
+                }
+            }
+        }
+
+        .rightside {
+            width: 100%;
+            justify-content: space-between;
+
+            &__box {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .withdraw .wrapper__top .rightside {
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        &__box:last-child {
+            margin: 0 0 1rem;
+        }
+
+        &__box:first-child {
+            margin: 0 0 1rem;
+        }
+    }
+}

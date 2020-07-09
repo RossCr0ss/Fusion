@@ -1,0 +1,98 @@
+.footer {
+    width: 100%;
+    @include gradient($color-blue-slate, $color-orchid-dark);
+    color: $color-white;
+
+    &__top {
+        @include flex(center);
+        max-width: 1370px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba($color: $color-white, $alpha: 0.5);
+
+        .navigation {
+            @include flex(space-between center);
+            position: relative;
+
+            .navbar {
+                @include flex(flex-end center);
+                overflow: hidden;
+                list-style-type: none;
+
+                &__link {
+                    @include flex(center);
+                    margin: 0 0.1rem;
+                    cursor: pointer;
+                    
+                    .item {
+                        padding: 0.25rem 0.5rem;
+                        text-decoration: none;
+                        color: $color-white;
+                        border-radius: 5px;
+                    }
+
+                    .item:hover {
+                        background: $color-white;
+                        color: $color-orchid-dark;
+                    }
+                }
+            }
+
+        }
+    }
+
+    &__bottom {
+        max-width: 1370px;
+        @include flex(center);
+        margin: 0 auto;
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .footer {
+        &__top .navigation {
+
+            .navbar {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        &__top .navigation {
+
+            .navbar {
+                font-size: 0.75rem;
+                width: 100%;
+
+                &__link .item {
+                    padding: 0.1rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .footer {
+        &__top .navigation {
+            width: 100%;
+
+            .navbar {
+                @include flex(center wrap);
+
+                &__link {
+                    width: 33%;
+                    margin: 0;
+
+                    /* .item {
+                        padding: 0;
+                    } */
+                }
+            }
+        }
+    }
+}

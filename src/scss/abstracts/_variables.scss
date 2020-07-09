@@ -1,0 +1,245 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+
+
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Muly', sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+
+
+
+
+/// Black text color
+/// @type Color
+$color-black-text: rgb(34, 34, 34) !default;
+
+/// Dark slate gray color
+/// @type Color
+$color-gray-darkslate: rgb(68, 68, 68) !default;
+
+/// Dark orchid color
+/// @type Color
+$color-orchid-dark: rgb(156, 39, 176);
+
+/// Dark orchid color with shadow
+/// @type Color
+$color-orchid-dark-shadow: rgba(156, 39, 176, 0.9);
+
+/// White color
+/// @type Color
+$color-white: rgb(255, 255, 255);
+
+/// Whitesmoke color
+/// @type Color
+$color-white-smoke-select: rgb(236, 239, 241);
+
+/// Dodgerblue
+/// @type Color
+$color-dodgerblue: rgb(19, 127, 253);
+
+/// Snow color
+/// @type Color
+$color-snow: rgb(249, 249, 249);
+
+/// White smoke color
+/// @type Color
+$color-white-smoke: rgb(236, 240, 241);
+
+/// Gray text color
+/// @type Color
+$color-gray-text: rgb(124, 124, 124);
+
+/// Slate gray color
+/// @type Color
+$color-gray-slate: rgb(107, 111, 130);
+
+/// Dim gray color
+/// @type Color
+$color-gray-dim: rgb(114, 114, 114);
+
+/// Light gray color
+/// @type Color
+$color-gray-light: rgb(207, 218, 221);
+
+/// Slate gray color
+/// @type Color
+$color-white-smoke-toolip: rgb(240, 242, 247);
+
+/// Lavender color
+/// @type Color
+$color-lavender: rgb(218, 212, 255);
+
+/// Light slate gray color
+/// @type Color
+$color-gray-light-slate: rgb(127, 140, 141);
+
+/// Dark slate gray color
+/// @type Color
+$color-gray-dark-slate: rgb(52, 73, 94);
+
+/// Silver color
+/// @type Color
+$color-silver: rgb(189, 195, 199);
+
+/// Title black color
+/// @type Color
+$color-black-title: rgb(33, 33, 33);
+
+/// Black color
+/// @type Color
+$color-black: rgb(0, 0, 0);
+
+/// Deep pink color
+/// @type Color
+$color-pink-deep: rgb(255, 64, 129);
+
+/// Hot pink color
+/// @type Color
+$color-blue-slate-hot: rgb(103, 58, 183);
+
+/// Red color
+/// @type Color
+$color-red: rgb(255, 0, 0);
+
+/// Tomato color
+/// @type Color
+$color-tomato: rgb(254, 85, 86);
+
+/// Medium tomato color
+/// @type Color
+$color-tomato-md: rgb(255, 110, 64);
+
+/// Salmon color
+/// @type Color
+$color-salmon: rgb(250, 108, 123);
+
+/// Dark orange color
+/// @type Color
+$color-orange-dark: rgb(254, 151, 27);
+
+/// Orange color
+/// @type Color
+$color-orange: rgb(255, 160, 0);
+
+/// Gold color
+/// @type Color
+$gold: rgb(255, 200, 40);
+
+/// Dark magenta color
+/// @type Color
+$color-magenta-dark: rgb(133, 3, 168);
+
+/// Slate blue color
+/// @type Color
+$color-blue-slate: rgb(103, 58, 183);
+
+
+/// Slate blue color for geneology tree
+/// @type Color
+$color-blue-slate-geneology: rgb(114, 102, 186);
+
+/// Slate blue color with shadow
+/// @type Color
+$color-blue-slate-shadow: rgba(103, 58, 183, 0.9);
+
+/// Dark magenta color
+/// @type Color
+$color-magenta: rgb(123, 31, 162);
+
+/// Deep orchid color
+/// @type Color
+$color-orchid-deep: rgb(142, 36, 170);
+
+// Deep orchid color
+/// @type Color
+$color-orchid-md:rgb(129,48,179);
+
+/// Dark magenta color
+/// @type Color
+$color-violet-dark: rgb(98, 0, 234);
+
+/// Fuchsia color
+/// @type Color
+$color-fuchsia: rgb(213, 0, 249);
+
+/// Turquoise color
+/// @type Color
+$color-turquoise: rgb(38, 198, 218);
+
+/// Royal blue color
+/// @type Color
+$color-blue-royal: rgb(55, 125, 208);
+
+/// Dark slate blue color
+/// @type Color
+$color-blue-dark-slate: rgb(48, 63, 159); 
+
+/// Deep blue color
+/// @type Color
+$color-blue-deep: rgb(25, 118, 210);
+
+/// Medium blue color
+/// @type Color
+$color-blue-md:rgb(3, 137, 209);
+
+/// Medium turquoise color
+/// @type Color
+$color-turquoise-md:rgb(73, 206, 223);
+
+/// Medium sea green color
+/// @type Color
+$color-green-md-sea: rgb(52, 189, 117);
+
+/// Medium spring green color
+/// @type Color
+$color-green-md-spring: rgb(32, 228, 174);
+
+/// Grey button shadow
+/// @type Color
+$color-grey-shadow: rgba(179, 179, 179, 1);
+
+/// Brown image shadow 
+/// @type Color
+$color-brown-image-shadow: rgba(255, 160, 0, 0.5);
+
+/// Brown image shadow
+/// @type Color
+$color-black-image-shadow: rgba(0, 0, 0, 0.1);
+
+
+
+
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1440px !default;
+
+
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;
+
+
+
+$default-size: 1em;
+$label-font-size: $default-size / 4;
+$label-font-size-redo: $default-size * 4;
+$base-font-size: 1.25rem;

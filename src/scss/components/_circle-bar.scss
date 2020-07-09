@@ -1,0 +1,116 @@
+.info__balance {
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    .set-size {
+        font-size: 10em;
+    }
+
+    .charts-container {
+        &:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+    }
+
+    .pie-wrapper {
+        @include size($default-size, $default-size);
+        float: left;
+        margin: 15px;
+        position: relative;
+
+        &:nth-child(3n + 1) {
+            clear: both;
+        }
+
+        .pie {
+            @include size(100%, 100%);
+            clip: rect(
+                0,
+                $default-size,
+                $default-size,
+                $default-size / 2
+            );
+            left: 0;
+            position: absolute;
+            top: 0;
+
+            .half-circle {
+                @include size(100%, 100%);
+                border: ($default-size / 20) solid $color-blue-slate-hot;
+                z-index: 1;
+                clip: rect(0, $default-size / 2, $default-size, 0);
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        .label {
+            background: $color-gray-dark-slate;
+            color: $color-white-smoke;
+            cursor: default;
+            @include flex(column flex-start center);
+            font-size: $label-font-size;
+            left: $label-font-size-redo / 10;
+            line-height: $label-font-size-redo * 0.4;
+            position: absolute;
+            right: $label-font-size-redo / 10;
+            text-align: center;
+            top: 55px;
+
+            .smaller {
+                font-weight: 400;
+                line-height: 1.5;
+                color: $color-gray-slate;
+                font-size: 1rem;
+                vertical-align: super;
+                -webkit-filter: drop-shadow(
+                    0px 10px 4px rgba($color-magenta-dark, 0.2)
+                );
+                filter: drop-shadow(
+                    0px 10px 4px rgba($color-magenta-dark, 0.2)
+                );
+            }
+            .title {
+                font-weight: 400;
+                color: $color-gray-darkslate;
+                font-size: 1.64rem;
+                filter: drop-shadow(
+                    0px 10px 4px rgba($color-magenta-dark, 0.2)
+                );
+            }
+        }
+
+        .shadow {
+            @include size(100%, 100%);
+            border: 0 solid $color-white-smoke;
+            -webkit-filter: drop-shadow(
+                0px 10px 4px rgba($color-magenta-dark, 0.2)
+            );
+            filter: drop-shadow(
+                0px 10px 4px rgba($color-magenta-dark, 0.2)
+            );
+        }
+
+        &.text-background {
+            .label {
+                background: none;
+                color: $color-gray-light-slate;
+
+                .smaller {
+                    color: $color-silver;
+                }
+            }
+        }
+
+    }
+
+    
+
+        
+}

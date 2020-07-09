@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* 1. Configuration and helpers */
+@import
+  'abstracts/variables',
+  'abstracts/mixins';
+
+/* 2. Vendors */
+@import
+  'vendors/normalize';
+
+/* 3. Base stuff */
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers';
+
+/* 4. Layout-related sections */
+@import
+  'layout/footer',
+  'layout/header';
+
+/* 5. Components */
+@import
+  'components/achievement-block',
+  'components/box',
+  'components/button',
+  'components/card',
+  'components/circle-bar',
+  'components/exchange-block',
+  'components/payments-sum-block',
+  'components/home-calculator',
+  'components/home-info-block',
+  'components/slider',
+  'components/social-bar',
+  'components/flip-counter-block',
+  'components/table';
+  
+/* 6. Page-specific styles */
+@import
+  'pages/home',
+  'pages/tariff',
+  'pages/documents',
+  'pages/profile',
+  'pages/wallet',
+  'pages/withdraw',
+  'pages/register',
+  'pages/genealogy',
+  'pages/promotion',
+  'pages/products',
+  'pages/partners',
+  'pages/operation-history',
+  'pages/login';
+

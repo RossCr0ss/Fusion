@@ -1,0 +1,337 @@
+.top {
+    @include flex(space-between);
+
+    &__left {
+        width: calc(100% / 3);
+        @include flex(column);
+        background-color: $color-white;
+
+        .image {
+            height: 150px;
+            width: 100%;
+            position: relative;
+
+            img {
+                height: 100%;
+                width: 100%;
+                background-size: cover;
+                border-radius: 2px 2px 0 0;
+            }
+        }
+
+        .content {
+            padding: 24px;
+            border-radius: 0 0 2px 2px;
+            position: relative;
+            font-size: 1rem;
+
+            .image-wrapper {
+                width: 70px;
+                position: absolute;
+                top: -35px;
+                height: 70px;
+                cursor: pointer;
+                background-color: $color-turquoise;
+            }
+
+            &-avatar {
+                border-radius: 50%;
+            }
+
+            &-title {
+                margin: 0.5rem 0;
+                color: $color-black-title;
+                font-weight: 400;
+                cursor: pointer;
+                line-height: 2rem;
+            }
+
+            &-text {
+                @include flex(flex-start center);
+                margin: 0.5rem 0;
+
+                .span {
+                    line-height: 1.5;
+                    color: $color-gray-slate;
+                    font-size: 1rem;
+                    margin: 0 0.5rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .copy {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &__right {
+        position: relative;
+        overflow: hidden;
+        width: calc((100% / 3) * 2);
+        @include flex;
+        background-color: $color-white;
+        color: $color-gray-slate;
+
+        .leftside {
+            width: 50%;
+            @include flex(center);
+        }
+
+        .rightside {
+            width: 50%;
+
+            &__box {
+                @include flex;
+
+                .inbox {
+                    margin-right: 2%;
+                    text-align: center;
+                    line-height: 22px;
+                    min-width: 3rem;
+                    height: 22px;
+                    padding: 0 6px;
+                    font-size: 0.8rem;
+                    color: $color-white;
+                    border-radius: 2px;
+                }
+
+                .rose {
+                    background-color: $color-pink-deep;
+                }
+
+                h5 {
+                    font-size: 1.64rem;
+                    margin: 0.82rem 1rem 0.656rem 0;
+                    font-weight: 400;
+                }
+
+                .red {
+                    color: $color-red;
+                }
+            }
+
+            hr {
+                opacity: 0.3;
+            }
+
+            &__list {
+                font-size: 15px;
+                padding-left: 1.65rem;
+                list-style-type: disc;
+
+                .item {
+                    padding: 0.2rem 0;
+                }
+            }
+
+            &__badge {
+                font-size: 15px;
+                position: absolute;
+                top: 22px;
+                right: -30px;
+                width: 130px;
+                @include gradient($color-orchid-deep, $color-tomato-md, 45deg);
+                height: 2em;
+                transform: rotate(45deg);
+                line-height: 2em;
+                text-indent: 0.8em;
+                background-color: transparent;
+                color: $color-white;
+                padding-left: 16px;                   
+            }
+        }
+    }
+}
+
+.boxes {
+    @include flex(space-between wrap);
+}
+
+.middle {
+    width: 100%;
+    @include flex;
+    height: 100%;
+
+    &__left {
+        width: calc(((100% / 3) * 2));
+        height: auto;
+    }
+
+    &__right {
+        width: calc(100% / 3);
+        
+        border-radius: 0.25rem;
+        .box {
+            @include flex(column flex-start center);
+            font-size: 0.9rem;
+            width: 100%;
+            height: 100%;
+            text-align: justify;
+
+            &__row {
+                @include flex(flex-start center);
+                width: 100%;
+                padding: 1rem;
+                border-bottom: 1px solid rgba($color-black, 0.12);
+
+                .images {
+                    @include flex(space-between);
+                    width: 100%;
+
+                    &__item {
+                        min-width: 4rem;
+                        width: 120px;                        
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+
+                }
+
+                .image {
+                    /* height: 3rem; */
+                    width: 5rem;
+                }
+
+                .image_background {
+                    background: linear-gradient(90deg, #673ab7, #9c27b0);
+                    padding: 5px;
+                    @include flex();
+                    border-radius: 4px;
+                }
+
+                .content {
+                    @include flex(column);
+                    font-weight: 600;
+
+                    &__title {
+                        font-size: 1rem;
+                    }
+
+                    &__text {
+                        color: $color-gray-text;
+
+                        &__link {
+                            @include flex(flex-start center);
+
+                            img {
+                                width: 1rem;
+                            }
+                        }
+
+
+                    }
+
+                    &__subtitle {
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            &__row:nth-child(2) {
+                height: 200px;
+            }
+
+            &__row:last-child {
+                @include flex(space-between center);
+            }
+
+            .links {
+                @include flex(column flex-start);
+            }
+
+            .blue {
+                color: $color-blue-royal;
+            }
+
+            &-row:last-child {
+                @include flex(space-between);
+            }
+        }
+    }
+}
+
+/* .table-profile {
+    height: 100%;
+
+    .table-box {
+        overflow: auto;
+    }
+} */
+
+@media screen and (max-width: 1024px) {
+    .top__right {
+        @include flex(column flex-start center);
+
+        .rightside {
+            h5 {
+                text-align: center;
+            }
+
+            &__box {
+                @include flex(flex-start center);
+            }
+
+            &__link {
+                @include flex(center);
+                margin: 1rem 0;
+                text-align: center;
+            }
+        }
+    }
+
+    .middle {
+        @include flex(column);
+
+        &__left  {
+            width: 100%;
+            margin: 0 0 1rem 0;
+        }
+
+        &__right {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .table_profile {
+        max-height: 800px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top {
+        @include flex(column);
+
+        &__left  {
+            width: 100%;
+            margin: 0 0 1rem 0;
+        }
+
+        &__right {
+            width: 100%;
+            margin: 0;
+
+            .rightside {
+                width: 100%;
+                @include flex(column center);
+
+                &__list {
+                    padding: 0 1rem 0 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .top__right .rightside__box {
+        @include flex(column);
+    }
+}

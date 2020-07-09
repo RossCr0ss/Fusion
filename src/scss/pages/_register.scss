@@ -1,0 +1,65 @@
+.register {
+    .wrapper {
+        margin-top: 120px;
+        @include flex(column center); 
+        color: $color-blue-slate-hot;
+
+        .form {
+            text-align: left;
+            font-weight: 300;
+            @include flex(column center);
+
+            &__box {
+                @include flex(column center);
+
+                .error {
+                    color: $color-red;
+                    font-size: 1rem;
+                }
+            }
+
+            &__text {
+                font-weight: 500;
+                line-height: 1.2;
+                font-size: 1.5rem;
+                text-align: center;
+                width: 100%;
+
+                button {
+                    width: 100%;
+                }
+            }
+
+            &__label {
+                font-size: 1rem;
+                line-height: 1.5;
+                text-align: left;
+                font-weight: 300;
+                display: inline-block;
+                color: $color-gray-light-slate;
+            }
+
+            &__input {
+                overflow: visible;
+                display: block;
+                width: 100%;
+                height: calc(1.5em + 0.75rem + 2px);
+                padding: 0.375rem 0.75rem;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: $color-gray-dark-slate;
+                background-color: $color-white;
+                border: 1px solid $color-silver;
+                border-radius: 0.25rem;
+                width: 400px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .register .wrapper .form__input {
+        width: 250px;
+    }
+}

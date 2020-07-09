@@ -1,0 +1,76 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.btn {
+    @include gradient($color-blue-slate, $color-orchid-dark);
+    -webkit-box-shadow: 0 5px 5px 0 $color-grey-shadow;
+    -moz-box-shadow: 0 5px 5px 0 $color-grey-shadow;
+    box-shadow: 0 5px 5px 0 $color-grey-shadow;
+    border: none;
+    min-width: 8rem;
+    cursor: pointer;
+    color: $color-white;
+    border-radius: 0.25rem;
+    text-align: center;
+
+    &_copylink {
+        outline: none;
+        border: none;
+        position: relative;
+        display: block;
+        cursor: pointer;
+
+        &:after {
+            content: 'Скопировать в буфер';
+            display: none;
+            position: absolute;
+            z-index: 9999;
+            top: 30px;
+            left: -37px;
+            width: 114px;
+            height: 36px;
+            color: $color-white;
+            font-size: 10px;
+            line-height: 36px;
+            text-align: center;
+            background: rgba($color-black, 0.72);
+            border-radius: 3px;
+        }
+
+        &:hover {
+            &:after {
+                display: block;
+            }
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.btn_violet {
+    color: $color-white;
+    @include gradient($color-blue-slate, $color-orchid-dark);
+    border: 1px solid $color-white;
+    box-shadow: none;
+    min-width: 8rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.btn_violet:hover {
+    background: $color-white;
+    color: $color-orchid-dark;
+    box-shadow: none;
+}
+
+.btn:hover {
+    box-shadow: 0 7px 7px 0 $color-grey-shadow;
+    -moz-box-shadow: 0 7px 7px 0 $color-grey-shadow;
+    box-shadow: 0 7px 7px 0 $color-grey-shadow;
+    color: $color-white;
+}

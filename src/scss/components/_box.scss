@@ -1,0 +1,95 @@
+.box {
+    &_card {
+        border-radius: 0.25rem;
+        width: calc(25% - 0.5rem);
+        color: $color-white;
+        
+        .content {
+            @include flex(column space-between center);
+            height: 100%;
+            padding: 20px;
+            color: $color-white;
+    
+            .wrapper {
+                height: 5rem;
+    
+                img {
+                    max-width: 100%;
+                    height: 100%;
+                }
+            }
+    
+            .title,
+            .subtitle {
+                width: 100%;
+                text-align: center;
+            }
+            .title {
+                font-size: 1.64rem;
+            }
+        }
+    }
+
+    &_card:nth-child(-n+4) {
+        margin-bottom: 1rem;
+    }
+
+    &_home {
+        width: calc(20% - 0.5rem);
+        margin-bottom: 0 !important;
+    }
+
+    &_buttons {
+        @include flex(column space-between center);
+        
+        button {
+            width: 100%;
+            padding: 2rem;
+        } 
+    }
+}
+
+.gradient {
+    @include gradient($color-blue-slate, $color-orchid-dark);
+}
+
+@media screen and (max-width: 1280px) {
+    .box {
+        &_home {
+            width: calc(50% - 0.5rem);
+        }
+
+        &_home:nth-child(-n+4) {
+            margin-bottom: 1rem !important;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .box {
+        &_card {
+            width: calc(50% - 0.5rem);
+        }
+
+        &_card:nth-child(-n+6) {
+            margin-bottom: 1rem;
+        }
+    }
+} 
+
+@media screen and (max-width: 768px) {
+    .box {
+        &_card {
+            width: 100% !important;
+        }
+
+        &_card:nth-child(7) {
+            margin-bottom: 1rem;
+        }
+
+        &_buttons {
+            button:first-child {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+} 

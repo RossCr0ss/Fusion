@@ -1,0 +1,165 @@
+.partners {
+    min-height: 100%;
+    
+    .top_block {
+        @include flex(space-between);
+
+        .referral_block {
+            width: 50%;
+            @include flex(column flex-start);
+    
+            .link {
+                &_wrapper {
+                    width: 100%;
+                    @include flex(row flex-start);
+    
+                    button {
+                        height: 100%;
+                    }
+                }
+    
+                &__box {
+                    flex-grow: 1;
+                    font-size: 0.75rem;
+                    background-color: transparent;
+                    padding-left: 0;
+                }
+    
+            }
+        }
+
+        .balance {
+            &_block {
+                @include flex(flex-end);
+            }
+
+            &__item {
+                @include flex(space-between center);
+
+                .wrapper {
+                    &_image {
+                        width: 2rem;
+                        margin-right: 0.25rem;
+                    }
+
+                    &_info {
+                        @include flex(column center);
+                        font-size: 0.8rem;
+
+                        .value {
+                            color: $color-orchid-dark;
+                        }
+                    }
+                }
+            }
+
+            &__item:first-child {
+                margin-right: 0.5rem;
+            }
+
+
+        }
+    }
+
+    .cards_block {
+        @include flex(space-between center);
+        width: 100%;
+
+        .item {
+            width: calc((100% / 3) - 1rem);
+
+            &__top {
+                width: 100%;
+                @include flex(flex-start center);
+
+                .wrapper {
+                    &_image {
+                        width: 3rem;
+                        height: 3rem;
+                        margin-right: 2rem;
+                        background-size: cover;
+                        object-fit: cover;
+                    }
+
+                    &_info {
+                        @include flex(column flex-start);
+
+                        .text {
+                            font-size: 0.8rem;
+                            color: $color-gray-slate;
+                        }
+                    }
+                }
+            }
+
+            &__bottom {
+                width: 100%;
+                @include flex(space-between center);
+
+                .value {
+                    color: $color-orchid-dark;
+                }
+
+                .text {
+                    font-size: 0.8rem;
+                    color: $color-gray-slate;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .partners {
+        .top_block {
+            width: 100%;
+            @include flex(column center);
+
+            .referral_block {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .balance_block {
+                margin-top: 1rem;
+            }
+        }
+
+        .cards_block {
+            @include flex(column center);
+
+            .item {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .item:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .partners .referral_block{
+        @include flex(column flex-start);
+
+        .link {
+            &_wrapper {
+                @include flex(column flex-start);
+            }
+
+            &__box {
+                width: 100%;
+
+                .referral {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,63 @@
+.counter {
+    &_block {
+        width: 100%;
+        @include gradient($color-blue-slate, $color-orchid-dark);
+    }
+
+    &__box {
+        width: 100%;
+        @include flex(column center);
+        color: $color-white;
+
+        .title {
+            text-align: center;
+        }
+
+        .list {
+            list-style-type: none;
+            width: 100%;
+            @include flex(center);
+
+            &__item {
+                @include flex(center);
+                margin: 0 2px;
+                width: 60px;
+                border-radius: 5px;
+                font-size: 90px;
+                font-weight: 700;
+                text-indent: 2px;
+                background-color: $color-black;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .counter {
+        &__box .list__item {
+            width: 32px;
+            font-size: 54px;
+            margin: 0 1px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .counter {
+        &__box .list__item {
+            width: 24px;
+            font-size: 28px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .counter {
+        &__box .list__item {
+            width: 16px;
+            font-size: 20px !important;
+            font-stretch: ultra-condensed;
+        }
+    }
+}
